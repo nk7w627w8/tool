@@ -23,7 +23,7 @@ gcc -o keymath keymath.c -lgmp
 
 struct Elliptic_Curve EC;
 struct Point G;
-struct Point DoublingG[256];
+struct Point DoublingG[130];
 
 const char *version = "0.1.211009";
 const char *EC_constant_N = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141";
