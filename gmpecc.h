@@ -20,7 +20,7 @@ void init_doublingG(struct Point *P);
 
 extern struct Elliptic_Curve EC;
 extern struct Point G;
-extern struct Point DoublingG[256];
+extern struct Point DoublingG[130];
 
 
 #endif
