@@ -23,7 +23,7 @@ gcc -o keymath keymath.c -lgmp
 
 struct Elliptic_Curve EC;
 struct Point G;
-struct Point DoublingG[130];
+struct Point DoublingG[256];
 
 const char *version = "0.1.211009";
 const char *EC_constant_N = "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141";
@@ -110,16 +110,6 @@ int main(int argc, char **argv)  {
 		break;
 	}
 	mpz_mod(number,number,EC.n);
-	Scalar_Multiplication_custom(struct Point P, struct Point *R, mpz_t m);{
-		struct Point Q, T;
-	long no_of_bits, loop;
-	mpz_init(Q.x);
-	mpz_init(Q.y);
-	mpz_init(T.x);
-	mpz_init(T.y);
-	no_of_bits = mpz_sizeinbase(m, 2);
-	mpz_set_ui(R->x, 0);
-	mpz_set_ui(R->y, 0);
 	switch(argv[2][0])	{
 		case '+':
 			if(FLAG_NUMBER)	{
@@ -139,19 +129,9 @@ int main(int argc, char **argv)  {
 		break;
 		case '/':
 			   if(FLAG_NUMBER)	{
-				   if(mpz_cmp_ui(m, 0) != 0)  {
-  	                                mpz_set(Q.x, P.x);
-  	                                mpz_set(Q.y, P.y);
 				        mpz_invert(inversemultiplier,number,EC.n);
-				        Scalar_Multiplication_custom(A,&C,inversemultiplier);
-				             if(FLAG_NUMBER) { 
-					         printf("Result: %s\n\n # Wrong",str_publickey);	
-				  }
-			    }
-			  }
-			  else {
-				printf("Result: %s\n\n # Right",str_publickey);	
-                        }
+				        Scalar_Multiplication_custom(A,&C,inversemultiplier);	
+			   }
 		break;
 		case 'x':
 			if(!FLAG_NUMBER)	{
