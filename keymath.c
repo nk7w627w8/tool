@@ -110,7 +110,16 @@ int main(int argc, char **argv)  {
 		break;
 	}
 	mpz_mod(number,number,EC.n);
-	Scalar_Multiplication_custom(struct Point P, struct Point *R, mpz_t m);
+	Scalar_Multiplication_custom(struct Point P, struct Point *R, mpz_t m);{
+		struct Point Q, T;
+	long no_of_bits, loop;
+	mpz_init(Q.x);
+	mpz_init(Q.y);
+	mpz_init(T.x);
+	mpz_init(T.y);
+	no_of_bits = mpz_sizeinbase(m, 2);
+	mpz_set_ui(R->x, 0);
+	mpz_set_ui(R->y, 0);
 	switch(argv[2][0])	{
 		case '+':
 			if(FLAG_NUMBER)	{
@@ -156,6 +165,7 @@ int main(int argc, char **argv)  {
 	}
 	generate_strpublickey(&C,true,str_publickey);
 	printf("Result: %s\n\n",str_publickey);	
+}
 }
 
 void generate_strpublickey(struct Point *publickey,bool compress,char *dst)	{
