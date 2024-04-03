@@ -143,7 +143,7 @@ void init_doublingG(struct Point *P)	{
 	mpz_set(DoublingG[i].x,P->x);
 	mpz_set(DoublingG[i].y,P->y);
 	i = 1;
-	while(i < 256){
+	while(i < 130){
 		mpz_init(DoublingG[i].x);
 		mpz_init(DoublingG[i].y);
 		Point_Doubling(&DoublingG[i-1] ,&DoublingG[i]);
