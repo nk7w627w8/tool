@@ -110,7 +110,7 @@ int main(int argc, char **argv)  {
 		break;
 	}
 	mpz_mod(number,number,EC.n);
-	struct Point P, struct Point *R, mpz_t m;
+	Scalar_Multiplication_custom(struct Point P, struct Point *R, mpz_t m);
 	switch(argv[2][0])	{
 		case '+':
 			if(FLAG_NUMBER)	{
