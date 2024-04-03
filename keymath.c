@@ -129,18 +129,18 @@ int main(int argc, char **argv)  {
 			Point_Addition(&A,&B,&C);
 		break;
 		case '/':
-			if(mpz_cmp_ui(m, 0) != 0) {
-				mpz_set(Q.x, P.x);
-  	                        mpz_set(Q.y, P.y);
 			   if(FLAG_NUMBER)	{
-				mpz_invert(inversemultiplier,number,EC.n);
-				Scalar_Multiplication_custom(A,&C,inversemultiplier);
-				  if(FLAG_NUMBER) { 
-					  printf("Result: %s\n\n # Wrong",str_publickey);	
+				   if(mpz_cmp_ui(m, 0) != 0)  {
+  	                                mpz_set(Q.x, P.x);
+  	                                mpz_set(Q.y, P.y);
+				        mpz_invert(inversemultiplier,number,EC.n);
+				        Scalar_Multiplication_custom(A,&C,inversemultiplier);
+				             if(FLAG_NUMBER) { 
+					         printf("Result: %s\n\n # Wrong",str_publickey);	
 				  }
+			    }
 			  }
-			}
-			else {
+			  else {
 				printf("Result: %s\n\n # Right",str_publickey);	
                         }
 		break;
